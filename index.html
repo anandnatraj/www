@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta name="viewport" content="initial-scale=1.0,width=device-width, user-scalable=no">
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="assets/css/Cosmo_bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="assets/css/styles.css" />
+        <style>
+            html, body {        width:100%; height: 100%;   margin-top: 0px;    position : absolute; padding: 0px;     }
+            .ngViewRelStyle {        width:100%; height: 100%;   margin-top: 0px;    position : relative; padding: 0px;     }
+            #map-canvas {      width:100%; height: 100%; margin-top: 0px;  position : relative; padding: 0px; z-index: 0}
+            .uiControls { position: absolute;top: 90%; left: 0%; z-index: 10;}
+        </style>
+        <script type="text/javascript" src="lib/jquery.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/angular.js"></script>
+        <script type="text/javascript" src="js/angular-route.js"></script>
+        <script type="text/javascript" src="js/ngStorage.js"></script>
+        <script src="js/myApp.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAP8zFV_sTC1-Numt3kATTtgT0W2Ciwx8E"></script>
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" charset="utf-8">    
+        // Work in Windows Mode
+        window.onload =callGeo;    
+            
+        // Wait for device API libraries to load    //
+        document.addEventListener("deviceready", onDeviceReady, notReady);    
+        // device APIs are available    //
+        function checkConnection(callback) {
+            
+            var networkState = navigator.connection.type;
+
+            var states = {};
+            states[Connection.UNKNOWN]  = 'Unknown connection';
+            states[Connection.ETHERNET] = 'Ethernet connection';
+            states[Connection.WIFI]     = 'WiFi connection';
+            states[Connection.CELL_2G]  = 'Cell 2G connection';
+            states[Connection.CELL_3G]  = 'Cell 3G connection';
+            states[Connection.CELL_4G]  = 'Cell 4G connection';
+            states[Connection.CELL]     = 'Cell generic connection';
+            states[Connection.NONE]     = 'No network connection';
+            var allowedConnections = [Connection.CELL_4G,Connection.CELL_3G,Connection.CELL_2G,Connection.WIFI];
+            var foundConnections = allowedConnections.filter(function(eachConn)
+                                      {
+                                        return (eachConn == networkState);
+                                      });
+            
+            if (foundConnections.length == 0)
+            {
+                alert('WiFi/Data Connectivity not active. Please enable and then start this App');
+                navigator.app.exitApp();
+            }
+            else
+                callback();
+        }
+    
+        function onDeviceReady() 
+        {
+            var deviceProperties = JSON.stringify(device);
+            checkConnection(callGeo);   
+        }
+        function callGeo()
+        {
+            console.log('calling CallGeo');
+            
+            var posOptions = {timeout:10000, enableHighAccuracy: true, maximumAge:10000};
+            navigator.geolocation.getCurrentPosition(onGeo,onNoGeo,posOptions);
+        }
+        function onGeo(position)
+        {
+            currentPosition = position;
+            setTimeout(function()
+            {
+                var bodyDoc = document.querySelector('body');
+                angular.bootstrap(bodyDoc,['_myApp']);
+            },800);
+        }
+            function handeNgBtrsError()
+            {
+                console.log('i handled this error');
+            }
+        function onNoGeo(error)
+        {
+            alert("Unable to get user's location coordinates. Please check if you have turned on GPS & Data/Wifi connectivities");
+            navigator.app.exitApp();
+        }    
+        function notReady()
+        {
+          var deviceProperties = 'Not yet ready';
+        }
+        </script>
+    </head>
+    <body>
+        			<div ng-view class='ngViewRelStyle'></div>
+        <!--div id="main">
+            <div class="row">
+                <div class="col-md-12">
+        
+                </div>
+            </div>
+		</div-->
+    </body>
+</html>

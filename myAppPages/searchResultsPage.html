@@ -1,0 +1,72 @@
+<div id='searchDiv'>
+    <div class="panel panel-primary">
+            <div class="panel-heading">
+                <a ng-click='goToProfilePage()'><span class='btn btn-info btn-xs pull-right'>Edit</span></a>
+                <span class='glyphicon glyphicon-star yellow '></span>
+            </div>
+        <div class="form-group">
+             <div class="panel-body">
+              <div class="input-group">
+                <!--<span class="input-group-addon">$</span> -->
+                <input type="text" class="form-control" ng-model="searchTxt">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="button" ng-click='search()' id='searchBtn' ><span class='glyphicon glyphicon-search'></span></button>
+                </span>
+              </div>
+              </div>
+            <div class="panel-body" ng-show={{moreLocation}}>
+                <div class="input-group">
+                    <span class="input-group-btn">
+                    <!--button class='btn btn-sm btn-primary' ng-click='showRecent()'>{{lblShowHide}} Recent Searches</button--> 
+                    <button class="btn btn-sm btn-default" type="button" ng-click='addAnotherLocation()'>Add Another Location</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ul class="list-group h3">
+                    <li class="list-group-item" >
+                        <p class=h4>{{noResults}}</p>
+                        <div class="" ng-show=showHideProgr>
+                            <img class='img-responsive center-block myscale' src='assets/pics/myBlueSpinner.gif'></img>
+                        </div>
+                    </li>
+                    <li class="list-group-item" data-ng-repeat='result in results' >
+                        <span class="glyphicon glyphicon glyphicon-list-alt blue pull-right btn btn-md" aria-hidden="true" data-toggle="modal" data-target="#myModal" ng-click='setSelectedItem(result)'></span>
+                        <span class="glyphicon glyphicon glyphicon-circle-arrow-right red default pull-right btn btn-md" ng-click='openMap(result)' aria-hidden="true"></span>
+                        <!--p class='h4 pull-right maroon'>{{result.distance}} kms &nbsp;</p-->
+                        <b>{{result.locId}}</b>
+                        <p class=h4>{{result.city}}, {{result.suburb}}</p>
+                    </li>
+                    
+    </ul>
+    <ul class="list-group" ng-show=showHide>
+        <li class="list-group-item">
+            <h3><b>Recent Searches</b></h3>
+        </li>
+        <li class="list-group-item"  data-ng-repeat='reSearch in recentSearches' >
+            <h4 >{{reSearch.qry}}<p class='pull-right'>{{reSearch.when}}</p></h4>
+        </li>
+    </ul>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Details of {{sResult.locId}}</h4>
+      </div>
+      <div class="modal-body">
+          <p>{{sResult.suburb}}</p>
+          <p>{{sResult.city}}</p>
+          <p>{{sResult.state}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" ng-click='openMap(sResult)'>Directions&nbsp;&nbsp;<span class="glyphicon glyphicon-circle-arrow-right"></span></button>
+      </div>
+    </div>
+  </div>
+</div>

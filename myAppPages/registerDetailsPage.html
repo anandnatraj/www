@@ -1,0 +1,77 @@
+   <div class="panel panel-primary" ng-show={{debug}}>
+        <div class="panel-heading">
+            <h3 class="panel-title">Mobile &amp; Location Details</h3>
+        </div>
+	   <div class="panel-body" >
+        <div class="row">
+            <ul class="list-group">
+                <li class="list-group-item">
+                <span class="glyphicon glyphicon-phone icon-4x blue" aria-hidden="true"></span>
+                    {{rMobileNumber}} &#64; Device: {{fullDetails.deviceDetails.uuid}}
+                </li>
+                <li class="list-group-item">
+                <span class="glyphicon glyphicon-map-marker icon-4x blue" aria-hidden="true"></span>
+                    {{rLatitude}} &amp; {{rLongitude}}
+                </li>
+            </ul>
+        </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Digital Address &amp; Privacy Levels</h3>
+        </div>
+        <div class="panel-body" >
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>Desired Digital Id </h4>
+                </div>
+                <div class="col-md-8">
+                    <div class="input-group">
+                    <!--<span class="input-group-addon">$</span> -->
+                    <input type=text ng-model='rDesiredId' class="form-control input-md" placeholder="No10CliveStLondon"/>
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button" ng-click='checkAvailability()'>ID Available?</button>
+                    </span>
+                        
+                  </div>
+                    <p ng-show='resultGot' id='idStatus'>{{idAvailableStatus}}</p>
+                 </div>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                <div class="col-md-4">
+                    <h4>Visibility Level :</h4>
+                </div>
+                <div class="col-md-8">
+                    <div class="row">
+                            <div class="btn-group btn-group-justified">
+                                <a class="btn btn-primary  btn-sm" id='Public'  type="button" ng-click="toggle('Public')">
+                                    <span class='glyphicon glyphicon-unchecked' />&nbsp;Public</a>
+                                <a class="btn btn-primary  btn-sm" id='Protected' type="button" ng-click="toggle('Protected')">
+                                    <span class='glyphicon glyphicon-unchecked' />&nbsp;Protected</a>
+                            </div>
+                    </div>
+                </div>
+                </div>    
+                <div class="row">
+                <div class="col-md-12">
+                    <h5><b class='blue'>{{seclevelTxt}}</b></h5>
+                </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12"><br>
+                        <button class="btn btn-success btn-block" id="subbutton" ng-click="submitFunction()">Register Me</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="panel panel-default" ng-show={{debug}}>
+	   <div class="panel-body" >
+        <div class="row">
+            {{fullDetails}}
+        </div>
+       </div>
+</div>
+    

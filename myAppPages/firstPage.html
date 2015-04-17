@@ -1,0 +1,65 @@
+<!-- contact.html -->
+<header ng-show=false>
+			<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+				    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"    data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+					<a class="navbar-brand" href="#" >My App</a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+    				<ul class="nav navbar-nav navbar-right">
+    		  			<li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+    					<li><a href="#map"><i class="fa fa-shield"></i> Map </a></li>
+    					<li><a href="#contact"><i class="fa fa-comment"></i> Contact</a></li>
+	       			</ul>
+      			</div>
+			</div>
+			</nav>
+    </header>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2 class="panel-title">Welcome ...</h2>
+  </div>
+  <div class="panel-body"><h3><b>Registering your Address Digitally is as simple as 1, 2 &amp; 3</b></h3></div>
+    
+    <ul class="list-group h4">
+                <li class="list-group-item">
+                <span class="glyphicon glyphicon-phone icon-4x blue" aria-hidden="true"></span>
+                    Enter your Mobile Number &amp; choose a Pin of your choice for security
+                </li>
+                <li class="list-group-item">
+                <span class="glyphicon glyphicon-map-marker icon-4x blue" aria-hidden="true"></span>
+                    Locate yourself in the Map using GPS
+                </li>
+                <li class="list-group-item">
+                <span class="glyphicon glyphicon-list icon-4x blue" aria-hidden="true"></span>
+                    Provide few basic information &amp; Save
+                </li>
+                <li class="list-group-item h5 blue">
+                    <p><b>Your Device Information</b></p>
+                    <p>Serial Number : {{deviceDetails.uuid}}</p>
+                    <p>Operating Platform : {{deviceDetails.platform}}</p>
+                </li>
+                <li class="list-group-item h5 blue">
+                    <div class="" ng-show=showHide>
+                        <img class='img-responsive center-block myscale' src='assets/pics/myBlueSpinner.gif'></img>
+                    </div>
+                    <p><b>Your Current Identified Location</b></p>
+                    <p>Sub Urban : {{suburb}}</p>
+                    <p>City : {{city}}</p>
+                    <p>State &amp; Country : {{state}}&#44;{{country}}</p>
+                </li>
+                <li class="list-group-item">
+                    <button id="savebutton" class='btn btn-default btn-block disabled' ng-click='goToPhonePage()'>Proceed </button>
+                </li>
+    </ul>
+    
+</div>
+<div  ng-show=false>
+    <p id="deviceProperties">{{firstPageContent}}</p>
+</div>

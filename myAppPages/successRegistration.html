@@ -1,0 +1,53 @@
+<div class='panel panel-primary'>
+            <ul class='list-group h2'>
+                <li class='list-group-item'>Thank You for registering with us !!!</li>
+                <li class='list-group-item blue'>
+                    <h4>Your registered details</h4>
+                </li>
+                <li class='list-group-item'>
+                    <div class='col-sm-12 col-md-12 col-lg-12'>
+                        <span class='badge pull-right h1'>{{regId}}</span>
+                    </div>
+                    <div class='col-sm-3 col-md-3 col-lg-3'>
+                        <h4 class=blue>Address</h4>
+                    </div>
+                    <div class='col-sm-9 col-md-9 col-lg-9'>
+                        <h5>{{addressline1}}&#44; {{addressline2}}</h5>
+                        <h5>{{suburb}}</h5>
+                        <h5>{{city}}</h5>
+                        <h5>{{state}}&#44;&nbsp;{{country}}</h5>
+                    </div>
+                </li>
+                <li class='list-group-item green' ng-show=askAdditionalTag>
+                    <h4>Do you know ?</h4>
+                    <h5>It appears like you have opted for 'Public' level visibility; you can add  additional info (like email, description etc) for others to search you easily</h5>
+                    <a class='btn btn-sm btn-primary' data-toggle="modal" data-target="#myModal" >Add Additional Info</a>
+                    <button class='btn btn-info btn-sm' ng-click='goToSearch()'>No, Thanks. Go To Search</button>
+                </li>
+                <li class='list-group-item'>
+                    
+                </li>
+                <li class='list-group-item col-sm-12 col-md-12 col-lg-12'>
+                    <h4>Please share this with your neighbours &amp; friends !! </h4><span class='glyphicon glyphicon-share green'></span>
+                </li>
+            </ul>
+</div>
+<!-- Model -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Additional Details for  {{regId}}</h4>
+      </div>
+      <div class="modal-body">
+          <p>{{suburb}}</p>
+          <p>{{city}}</p>
+          <p>{{state}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" ng-click='updateAdditional()'>Save &nbsp;&nbsp;<span class="glyphicon glyphicon-circle-arrow-right"></span></button>
+      </div>
+    </div>
+  </div>
+</div>

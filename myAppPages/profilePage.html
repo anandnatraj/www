@@ -1,0 +1,93 @@
+<div class='col-lg-6 col-md-6 col-sm-6'>
+<ul class='list-group'>
+    <li class='list-group-item'>
+        <div class='profilemapContainer'>
+            <div id="profileMap"></div>
+        </div>
+    </li>
+    <li class='list-group-item'>
+        <button class='btn btn-block btn-warning' ng-click='editLocation()'>Edit Location</button>
+    </li>
+</ul>
+</div>
+<div class='col-lg-6 col-md-6 col-sm-6'>
+    <div class='panel panel-body'>
+        <div class="row">
+            <div class="col-md-4">
+                    <h4>Visibility Level :</h4>
+            </div>
+            <div class="col-md-8">
+                <div class="btn-group btn-group-justified">
+            <a class="btn btn-default btn-sm" id='Public'  type="button" ng-click="toggle('Public')">
+                <span class='glyphicon glyphicon-unchecked' />&nbsp;Public</a>
+            <a class="btn btn-default btn-sm" id='Protected' type="button" ng-click="toggle('Protected')">
+                <span class='glyphicon glyphicon-unchecked' />&nbsp;Protected</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <h4>House Number / Name </h4>
+            </div>
+            <div class="col-md-8">
+                <input type=text ng-model='address1' class="form-control input-md" placeholder="House#, Apt Name"/>
+             </div>
+            </div>
+            <div class="row">
+            <div class="col-md-4">
+                <h4>Street / Block Name </h4>
+            </div>
+            <div class="col-md-8">
+                <input type=text ng-model='address2' class="form-control input-md" placeholder="Street, Avenue, Block Name"/>
+             </div>
+            </div>
+            <div class="row">
+            <div class="col-md-4">
+                <h4>Sub-Urban / Town </h4>
+            </div>
+            <div class="col-md-8">
+                <input type=text ng-model='suburb' class="form-control input-md" placeholder="Suburban, Town etc"/>
+             </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>City / District</h4>
+                </div>
+                <div class="col-md-8">
+                            <input type=text ng-model='city' class="form-control input-md" placeholder="City, District"/>
+                 </div>
+            </div>
+            <div class="row">
+            <div class="col-md-4">
+                <h4>Pin / Zipcode </h4>
+            </div>
+            <div class="col-md-8">
+                <input type=text ng-model='pinZipCode' class="form-control input-md" placeholder="Pin, ZIP Code"/>
+             </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <h4> State </h4>
+                </div>
+                <div class="col-md-8">
+                    <div class="input-group">
+                        <input type=text ng-model='state' class="form-control input-md" placeholder="State, Province" />
+                        <span class="input-group-addon">{{country}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class='panel panel-body'>
+                <div class="col-md-12">
+                    <div class="" ng-show=showHideProgr>
+                        <p class="text-primary">{{updateStatus}}</p>
+                        </div>
+                    <button class='btn btn-block btn-warning' ng-click='updateDetailsAlone()'>Update Profile</button>
+                </div>
+        </div>
+        <div class='panel panel-body' ng-show=showBack>
+                <div class="col-md-12" >
+                    <button class='btn btn-info btn-sm' ng-click='goToSearch()'>Back to Search</button>
+                </div>
+        </div>
+</div>

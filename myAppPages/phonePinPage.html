@@ -1,0 +1,43 @@
+<!-- contact.html -->
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2 class="panel-title">Welcome ...</h2>
+  </div>
+    <div class="panel-body">
+        <ul class="list-group">
+                <li ng-show={{debug}}>
+                    {{deviceDetails}} <br> {{addressDetails}} <br> {{cityStateAndCountry}}
+                </li>
+                
+                <li class="list-group-item">
+                <div class="form-group">
+                  <label class="control-label">Mobile Number</label>
+                  <div class="input-group">
+                    <span class="input-group-addon glyphicon glyphicon-phone icon-4x maroon"></span>
+                    <input class="form-control" type="number" ng-model='mobNumber' />
+                  </div>
+                </div>
+                </li>
+                <li class="list-group-item">
+                <div class="form-group">
+                  <label class="control-label">4 Digit Pin</label>
+                  <div class="input-group">
+                    <span class="input-group-addon glyphicon glyphicon-eye-close icon-4x maroon"></span>
+                    <input class="form-control" type="password" ng-model='sPin' />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label">Re-enter the pin</label>
+                  <div class="input-group">
+                    <!---span class="input-group-addon glyphicon glyphicon-eye-close icon-4x blue"></span-->
+                    <input class="form-control" type="password" ng-model='csPin'>
+                  </div>
+                </div>
+                </li>
+                <li class="list-group-item">
+                <button id="savebutton" class='btn btn-default btn-block' ng-click='goToMapPage()'>Continue to Choose Location</button>
+                </li>
+        </ul>
+    </div>
+</div>

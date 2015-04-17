@@ -1,0 +1,31 @@
+<div id="map-canvas"></div>
+<nav class="navbar navbar-success navbar-fixed-bottom">
+  <div class="container">
+    <div class="btn-group btn-group-justified">
+      
+        <a class="btn btn-md btn-default" ng-click='zoomOut()'><span class="glyphicon glyphicon-zoom-out" aria-hidden="false" ></span></a>
+        
+        <a class="btn btn-md btn-default"ng-click='zoomIn()'><span class="glyphicon glyphicon-zoom-in" aria-hidden="false" ></span></a>
+        <a class="btn btn-md btn-success" data-toggle="modal" data-target="#myModal" ng-click='showStepByStep()'>
+            <span class="glyphicon glyphicon-play" aria-hidden="true"></span>&nbsp;
+            <span class="glyphicon glyphicon-play" aria-hidden="true"></span></a>
+    </div>
+  </div>
+</nav>
+
+<!-- Model -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content modal-primary">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Directions</h4>
+      </div>
+      <div class="modal-body" id="directions-panel">
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-default" type="button" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
